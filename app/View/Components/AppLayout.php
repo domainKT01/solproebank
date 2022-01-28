@@ -15,6 +15,6 @@ class AppLayout extends Component
      */
     public function render()
     {
-        return ("Buscando pagina");
+        return view("home");
     }
 }

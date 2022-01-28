@@ -1,17 +1,23 @@
+
 @extends('adminlte::page')
 
-@section('title', 'Dashboard')
-
-@section('plugins.Sweetalert2',true)
-    
-@endsection
+@section('title','Dashboar')
 
 @section('content_header')
     <h1>Dashboard</h1>
 @stop
 
 @section('content')
-    <p>Welcome to this beautiful admin panel.</p>
+    <div class="card">
+        <div class="card-header">
+            <p>Welcome to this beautiful admin panel.</p>
+        </div>
+
+        <div class="card-body">
+           <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sit dolores est excepturi quis incidunt. Ratione, minus temporibus ea quasi non nam enim aperiam sunt? Unde esse molestias dolores blanditiis similique!</p>
+        </div>
+    </div>
+    
 @stop
 
 @section('css')
