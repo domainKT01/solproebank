@@ -1,10 +1,10 @@
 
-<!--<x-app-layout>
+<x-app-layout>
        
 </x-app-layout>
 
 
-<!DOCTYPE html>
+{{-- <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
@@ -39,7 +39,7 @@
                             <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
                         @endif--}}
                     
-                </div>
+                {{--/div>
             @endif
 
             <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
@@ -136,3 +136,4 @@
         </div>
     </body>
 </html>
+ --}}

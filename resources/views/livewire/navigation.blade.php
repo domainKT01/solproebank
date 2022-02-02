@@ -31,8 +31,11 @@
 
         <!-- Start of Logo-->
         <a href="/" class="flex-shrink-0 flex items-center ">
-          <img class="block lg:hidden h-8 w-auto" src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg" alt="Workflow">
-          <img class="hidden lg:block h-8 w-auto" src="https://tailwindui.com/img/logos/workflow-logo-indigo-500-mark-white-text.svg" alt="Workflow">
+          <div class="logo p-2">
+              <img class="block lg:hidden h-12 w-24 brand-image img-circle elevation-3" src="vendor/adminlte/dist/img/Solproe.png" width="100%" alt="Solproe.SAS">
+              <img class="hidden lg:block h-12 w-24 brand-image img-circle elevation-3" src="vendor/adminlte/dist/img/Solproe.png" width="100%" alt="Solproe.SAS">
+          </div>
+          
         </a>
         <!-- End of Logo-->
 
@@ -40,15 +43,15 @@
         <div class="hidden sm:block sm:ml-6">
           <div class="flex space-x-4">
             <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-            <a href="#" class="bg-gray-900 text-black px-3 py-2 rounded-md text-sm font-medium" aria-current="page">Dashboard</a>
+            <a href="#" class="text-gray-900 hover:bg-gray-300 hover:text-white px-3 py-2 rounded-md text-xl font-medium" aria-current="page">Dashboard</a>
 
-            <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+            <a href="#" class="text-gray-900 hover:bg-gray-300 hover:text-white px-3 py-2 rounded-md text-xl font-medium">
               Donor recruitment</a>
 
-            <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+            <a href="#" class="text-gray-900 hover:bg-gray-300 hover:text-white px-3 py-2 rounded-md text-xl font-medium">
               Production process</a>
 
-            <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+            <a href="#" class="text-gray-900 hover:bg-gray-300 hover:text-white px-3 py-2 rounded-md text-xl font-medium">
               Distribution</a>
           </div>
         </div>
@@ -82,6 +85,7 @@
           <div x-show="open" x-on:click.away="open = false" class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
             <!-- Active: "bg-gray-100", Not Active: "" -->
             <a href="{{route('profile.show')}}" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">Your Profile</a>
+            <a href="{{route('admin.home')}}" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">Dashboar</a>
             <!--<a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-1">Settings</a>-->
             <form method="POST" action="{{ route('logout') }}">
               @csrf
@@ -98,11 +102,11 @@
 
       @else 
 
-        <div>
+        <div class="flex items-center justify-center sm:items-stretch sm:justify-start">
             
-          <a href="{{route('login')}}" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+          <a href="{{route('login')}}" class="text-gray-900 hover:bg-gray-300 hover:text-white px-3 py-2 rounded-md text-xl text-right font-medium">
           Login</a>
-          <a href="{{route('register')}}" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+          <a href="{{route('register')}}" class="text-gray-900 hover:bg-gray-300 hover:text-white px-3 py-2 rounded-md text-xl text-right font-medium">
           Register</a>
 
         </div>  

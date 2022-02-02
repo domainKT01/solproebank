@@ -45,7 +45,7 @@ return [
     |
     */
 
-    'logo' => '<b>Solproe  </b>',
+    'logo' => '<b>Solproe</b>',
     'logo_img' => 'vendor/adminlte/dist/img/Solproe.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
@@ -188,7 +188,7 @@ return [
     */
 
     'use_route_url' => false,
-    'dashboard_url' => 'home',
+    'dashboard_url' => '/',
     'logout_url' => 'logout',
     'login_url' => 'login',
     'register_url' => 'register',
@@ -226,11 +226,7 @@ return [
 
     'menu' => [
         // Navbar items:
-        [
-            'type'         => 'navbar-search',
-            'text'         => 'search',
-            'topnav_right' => true,
-        ],
+        
         [
             'type'         => 'fullscreen-widget',
             'topnav_right' => true,
@@ -238,33 +234,24 @@ return [
 
         // Sidebar items:
         [
-            'type' => 'sidebar-menu-search',
-            'text' => 'search',
-            'search' =>true,
-            'topnav' =>true,
+            
         ],
         [
             'text' => 'blog',
-            'url'  => 'admin/blog',
+            'url'  => 'admin',
             'can'  => 'manage-blog',
         ],
         [
             'text' => 'Dashboard',
-            'route'  => 'home',
-            'icon'  => 'fas fa-fw fa-home',
+            'route'  => 'admin.home',
+            'icon'  => 'fas fa-tachometer-alt fa-fw',
         ],
-        [
-            'text'        => 'pages',
-            'url'         => 'admin/pages',
-            'icon'        => 'far fa-fw fa-file',
-            'label'       => 4,
-            'label_color' => 'success',
-        ],
+       
         ['header' => 'account_settings'],
         [
-            'text' => 'profile',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-user',
+            'text' => 'Customer',
+            'route'  => 'admin.requestorings.index',
+            'icon' => 'fab fa-intercom fa-fw ',
         ],
         [
             'text' => 'change_password',
