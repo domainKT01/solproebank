@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a2738df21b14211826942218245b6c7a",
+    "content-hash": "0876c8c66f84fc9669a8f7d8a9610f36",
     "packages": [
         {
             "name": "almasaeed2010/adminlte",
@@ -1534,16 +1534,16 @@
         },
         {
             "name": "laravel/jetstream",
-            "version": "v2.6.2",
+            "version": "v2.6.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/jetstream.git",
-                "reference": "852d0ab658b4a17b79396f7cf1aba5dddb3de8f3"
+                "reference": "a03b8ececef21e4d2c3bfb8a7e90ec36c2dfaaf9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/jetstream/zipball/852d0ab658b4a17b79396f7cf1aba5dddb3de8f3",
-                "reference": "852d0ab658b4a17b79396f7cf1aba5dddb3de8f3",
+                "url": "https://api.github.com/repos/laravel/jetstream/zipball/a03b8ececef21e4d2c3bfb8a7e90ec36c2dfaaf9",
+                "reference": "a03b8ececef21e4d2c3bfb8a7e90ec36c2dfaaf9",
                 "shasum": ""
             },
             "require": {
@@ -1596,7 +1596,7 @@
                 "issues": "https://github.com/laravel/jetstream/issues",
                 "source": "https://github.com/laravel/jetstream"
             },
-            "time": "2022-01-18T18:03:26+00:00"
+            "time": "2022-02-15T14:30:06+00:00"
         },
         {
             "name": "laravel/sanctum",
@@ -2199,16 +2199,16 @@
         },
         {
             "name": "livewire/livewire",
-            "version": "v2.10.1",
+            "version": "v2.10.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/livewire/livewire.git",
-                "reference": "0d417b27791af09c79108eafd1344842f83a26ee"
+                "reference": "2d68c61a8edf338534fdd8e2b2750dca2e741439"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/livewire/livewire/zipball/0d417b27791af09c79108eafd1344842f83a26ee",
-                "reference": "0d417b27791af09c79108eafd1344842f83a26ee",
+                "url": "https://api.github.com/repos/livewire/livewire/zipball/2d68c61a8edf338534fdd8e2b2750dca2e741439",
+                "reference": "2d68c61a8edf338534fdd8e2b2750dca2e741439",
                 "shasum": ""
             },
             "require": {
@@ -2260,7 +2260,7 @@
             "description": "A front-end framework for Laravel.",
             "support": {
                 "issues": "https://github.com/livewire/livewire/issues",
-                "source": "https://github.com/livewire/livewire/tree/v2.10.1"
+                "source": "https://github.com/livewire/livewire/tree/v2.10.4"
             },
             "funding": [
                 {
@@ -2268,7 +2268,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-01-21T13:39:10+00:00"
+            "time": "2022-02-18T22:35:27+00:00"
         },
         {
             "name": "mobiledetect/mobiledetectlib",

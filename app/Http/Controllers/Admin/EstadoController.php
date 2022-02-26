@@ -1,28 +1,23 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
-
+namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Customer;
+use App\Models\estado;
 
 
-
-class CustomerController extends Controller
+class EstadoController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-   
-
     public function index()
     {
-        $customers = customer::all();
-        dd( $customers);
-        return view('admin.customers.index', compact('customers'));
+        $estados = estado::all();
+        return view('admin.states.index',compact('estados'));
     }
 
     /**
@@ -30,9 +25,9 @@ class CustomerController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(customer $customer)
+    public function create()
     {
-        return view('admin.customers.create');
+        //
     }
 
     /**
@@ -41,9 +36,11 @@ class CustomerController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $customer)
+    public function store(Request $request)
     {
-        //
+        $estados = estado::all();
+        return view('admin.providers.create', compact('estados'));
+        
     }
 
     /**
@@ -52,9 +49,9 @@ class CustomerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(customer $customer)
+    public function show($id)
     {
-        return view('admin.customers.show', compact('customers'));
+        //
     }
 
     /**
@@ -63,9 +60,10 @@ class CustomerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(customer $customer)
+    public function edit(estado $estados)
+
     {
-        return view('admin.customers.edit', compact('customers'));
+        Return view('admin.states.index', compact('estado'));
     }
 
     /**
@@ -75,7 +73,7 @@ class CustomerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $customer)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -86,7 +84,7 @@ class CustomerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy( customer $customer)
+    public function destroy($id)
     {
         //
     }

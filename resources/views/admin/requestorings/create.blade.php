@@ -7,94 +7,115 @@
 @stop
 
 @section('content')
-    {{-- <div class="card">
-        <div class="card-body">
-
-            {!! Form::open(['route' => 'admin.requestorings.store']) !!}
-
-            <span class="label label-success ">Success Label</span>
-
-            <div class="form-row mr-4">
-                <div class="form-group">
-                    {!! Form::label('TAX IDENTIFICATION', '') !!}
-                    {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Enter tax identification ' ]) !!}
-                </div>
-                <div class="form-group mr-4">
-                    {!! Form::label('CUSTOMER', '') !!}
-                    {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Enter customer name']) !!}
-                </div>
-            </div>
-            <div class="form-group">
-                {!! Form::label('ADDRESS', '') !!}
-                {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Enter address ']) !!}
-            </div>
-            <div class="form-group">
-                {!! Form::label('CUSTOMER', '') !!}
-                {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Enter customer name']) !!}
-            </div>
-
-            {!! Form::submit('Create customer', ['class' => 'btn btn-outline-success']) !!}
-            {!! form::close() !!}
-        </div>
-    </div> --}}
     <div class="card">
         <div class="card_body">
-            {!! Form::open(['route' => 'admin.requestorings.store']) !!}
+            {!! Form::open(['route' => 'admin.requestorings.store', 'autocomplete' => 'off']) !!}
             <div class="form-row ml-4 mt-4">
                 <div class="form-group col-md-2">
                     {!! Form::label('TAX IDENTIFICATION', '') !!}
-                    {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Enter tax identification ']) !!}
+                    {!! Form::text('NIT', null, ['class' => 'form-control', 'placeholder' => 'Enter tax identification ']) !!}
+                    @error('NIT')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
                 </div>
                 <div class="form-group ">
                     {!! Form::label('CHECK DIGIT', '') !!}
-                    <select id="inputState" class="form-control">
-                        <option selected>choose check digit</option>
+                    <select name="" class="form-control">
+                        <option selected>Digit</option>
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
                         <option>...</option>
                     </select>
+                    @error('CHECK_DIGITAL')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
                 </div>
-                <div class="form-group col-md-8">
+                <div class="form-group col-md-4 ">
+                    {!! Form::label('TAX REGIME', '') !!}
+                    <select id="inputState" class="form-control">
+                        <option selected>Choose tax regime</option>
+                        <option>...</option>
+                    </select>
+                    @error('REGIME')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
+
+                    {{-- {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Enter tax regime']) !!} --}}
+                </div>
+                <div class="form-group col-md-4 ">
+                    {!! Form::label('EMAIL FOR ELECTRONIC BILLING', '') !!}
+                    {!! Form::email('correo', null, ['class' => 'form-control', 'placeholder' => 'Enter email for electronic billing']) !!}
+                    @error('correo')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
+                </div>
+                <div class="form-group col-md-11 ml-4 mt-2">
                     {!! Form::label('CUSTOMER', '') !!}
-                    {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Enter customer name']) !!}
+                    {!! Form::text('DES_REQUESTORIG', null, ['class' => 'form-control', 'placeholder' => 'Enter customer name']) !!}
+                    @error('DES_REQUESTORIG')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
                 </div>
             </div>
-
             <div class="form-group col-md-11 ml-4 mt-2">
                 {!! Form::label('ADDRESS', '') !!}
-                {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Enter address']) !!}
+                {!! Form::text('DES_ADDRESS', null, ['class' => 'form-control', 'w-full', 'placeholder' => 'Enter address']) !!}
+                @error('DES_ADDRESS')
+                    <span class="text-danger">{{ $message }}</span>
+                @enderror
             </div>
             <div class="form-row ml-4 mt-4">
-                <div class="form-group col-md-6">
+                <div class="form-group col-md-4">
                     {!! Form::label('LEGAL REPRESENTATIVE', '') !!}
-                    {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Enter legal representative']) !!}
+                    {!! Form::text('persona_encargada', null, ['class' => 'form-control', 'placeholder' => 'Enter legal representative']) !!}
+                    @error('persona_encargada')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
                 </div>
                 <div class="form-group ">
                     {!! Form::label('CITIZENSHIP CARD', '') !!}
-                    {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Enter citizenshio card']) !!}
+                    {!! Form::text('CITIZENSHIP_CARD', null, ['class' => 'form-control', 'placeholder' => 'Enter citizenshio card']) !!}
+                    @error('CITIZENSHIP_CARD')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
                 </div>
                 <div class="form-group col-md-2">
                     {!! Form::label('PHONES LANDLINE', '') !!}
-                    {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Enter landline']) !!}
+                    {!! Form::text('LANDLINE', null, ['class' => 'form-control', 'placeholder' => 'Enter landline']) !!}
+                    @error('LANDLINE')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
                 </div>
                 <div class="form-group ">
                     {!! Form::label('MOBILE PHONE', '') !!}
-                    {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Enter mobile phone']) !!}
+                    {!! Form::text('MOBILE', null, ['class' => 'form-control', 'placeholder' => 'Enter mobile phone']) !!}
+                    @error('MOBILE')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
                 </div>
             </div>
             <div class="form-row ml-4 mt-2">
-                <div class="form-group col-md-4 ">
-                    {!! Form::label('STATE', '') !!}
-                    <select id="inputState" class="form-control">
-                        <option selected>choose state</option>
-                        <option>...</option>
-                    </select>
-                    {{-- {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Enter city']) !!} --}}
+                <div class="form-group ">
+                    {!! Form::label('ID_STATE', 'state') !!}
+                    {!! Form::select('ID_STATE', $estados, null, ['class' => 'form-control']) !!}
+                    @error('ID_STATE')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
                 </div>
                 <div class="form-group col-md-4 ">
-                    {!! Form::label('CITY', '') !!}
-                    <select id="inputState" class="form-control">
-                        <option selected>choose city</option>
-                        <option>...</option>
-                    </select>
+                    {!! Form::label('CODIGO', 'MUNICIPIOS') !!}
+                    {!! Form::select('DES_AREA', $municipios, null, ['class' => 'form-control']) !!}
+                    @error('DES_AREA')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
                 </div>
                 <div class="form-group col-md-3">
                     {!! Form::label('NEIGHBORHOOD', '') !!}
@@ -102,38 +123,16 @@
                         <option selected>Choose neighborhood</option>
                         <option>...</option>
                     </select>
+                    @error('NEIGHBORHOOD')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
                 </div>
             </div>
             <div class="form-row ml-4 mt-2">
-                <div class="form-group col-md-4 ">
-                    {!! Form::label('TAX REGIME', '') !!}
-                    <select id="inputState" class="form-control">
-                        <option selected>Choose tax regime</option>
-                        <option>...</option>
-                    </select>
-                    {{-- {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Enter tax regime']) !!} --}}
-                </div>
-                <div class="form-group col-md-4 ">
-                    {!! Form::label('EMAIL FOR ELECTRONIC BILLING', '') !!}
-                    {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Enter email for electronic billing']) !!}
-                </div>
-                <div class="form-group col-md-3">
-                    <label for="inputState">State</label>
-                    <select id="inputState" class="form-control">
-                        <option selected>Choose...</option>
-                        <option>...</option>
-                    </select>
-                </div>
+
+
             </div>
-            <div class="form-group">
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="gridCheck">
-                    <label class="form-check-label" for="gridCheck">
-                        Check me out
-                    </label>
-                </div>
-            </div>
-            <button type="submit" class="btn btn-primary">Sign in</button>
+            {!! form::submit('Customer Create', ['class' => 'btn btn-success float-right mb-4 mr-2']) !!}
             {!! form::close() !!}
         </div>
     </div>

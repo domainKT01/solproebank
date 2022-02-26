@@ -146,8 +146,8 @@ return [
     */
 
     'sidebar_mini' => 'lg',
-    'sidebar_collapse' => true,
-    'sidebar_collapse_auto_size' => false,
+    'sidebar_collapse' => false,
+    'sidebar_collapse_auto_size' => true,
     'sidebar_collapse_remember' => false,
     'sidebar_collapse_remember_no_transition' => true,
     'sidebar_scrollbar_theme' => 'os-theme-light',
@@ -247,60 +247,68 @@ return [
             'icon'  => 'fas fa-tachometer-alt fa-fw',
         ],
        
-        ['header' => 'account_settings'],
+        ['header' => 'Account_settings'],
+       
         [
-            'text' => 'Customer',
-            'route'  => 'admin.requestorings.index',
-            'icon' => 'fab fa-intercom fa-fw ',
+            'text' => 'Donor',
+            'route'  => 'admin.persons.index',
+            'icon' => 'fas fa-people-arrows fa-fw'
         ],
         [
-            'text' => 'change_password',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-lock',
+            'text'    => 'Management',
+            'icon'    => 'fas fa-compress fa-fw',
+            'submenu' =>
+             [
+                 [
+                    'text' => 'Customers',
+                    'route'  => 'admin.requestorings.index',
+                    'icon' => 'fab fa-intercom fa-fw ',
+                    'active'=>['admin/customers*']
+                 ],
+                 [
+                    'text' => 'Providers',
+                    'route'  => 'admin.providers.index',
+                    'icon' => 'fas fa-handshake fa-fw',
+                    'active'=>['admin/providers*']
+                 ],
+                 
+             ],
+
         ],
+
+
         [
-            'text'    => 'multilevel',
-            'icon'    => 'fas fa-fw fa-share',
-            'submenu' => [
+            'text'    => 'Inventories',
+            'icon'    => 'fas fa-warehouse fa-fw',
+            'submenu' =>
+            [
                 [
-                    'text' => 'level_one',
+                    'text' => 'Entry',
+                    'icon' => 'fas fa-arrow-right fa-fw',
                     'url'  => '#',
                 ],
                 [
-                    'text'    => 'level_one',
-                    'url'     => '#',
-                    'submenu' => [
-                        [
-                            'text' => 'level_two',
-                            'url'  => '#',
-                        ],
-                        [
-                            'text'    => 'level_two',
-                            'url'     => '#',
-                            'submenu' => [
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                            ],
-                        ],
-                    ],
+                    'text' => 'Orders',
+                    'icon' => 'fas fa-hand-holding fa-fw',
+                    'url'  => '#',
                 ],
+                [
+                    'text'    => 'Delivery',
+                    'icon' => 'fas fa-truck fa-fw',
+                    'url'     => '#',
+                ],
+               
                 [
                     'text' => 'level_one',
                     'url'  => '#',
                 ],
             ],
         ],
-        ['header' => 'labels'],
+        ['header' => 'Props'],
         [
-            'text'       => 'important',
+            'text'       => 'States',
             'icon_color' => 'red',
-            'url'        => '#',
+            'route'       => 'admin.states.index',
         ],
         [
             'text'       => 'warning',
@@ -466,5 +474,5 @@ return [
     |
     */
 
-    'livewire' => false,
+    'livewire' => true,
 ];
