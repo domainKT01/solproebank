@@ -30,12 +30,12 @@ class Requestoring extends Model
 
    //many to many relationship
 
-   public function estados()
+  
+ public function estados()
    {
        return $this->belongsTo('app\models\estado','ID_STATE');
-       
    }
+    
 
-  
+
 }
-

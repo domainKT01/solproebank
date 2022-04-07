@@ -4,9 +4,10 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Proveedor;
+use App\Models\State;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use app\Models\estado;
+use App\Models\Town;
 
 class ProveedorController extends Controller
 {
@@ -15,23 +16,52 @@ class ProveedorController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public $SelectedEstado = null, $selectedMunicipio= null;
+    public $municipios = null;
+
     public function index()
+
     {
+        $states = State::all();
         $providers = Proveedor::all();
-        return view('admin.providers.index', compact('providers'));
+        return view('admin.providers.index', compact('states'));
     }
+
 
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
+     * 
+     * 
      */
-    public function create()
-    {
-        $estados = DB::table('state')->orderBy('DES_STATE','asc');
+    public function listarmunicipios($ID_STATE)
 
-        return view('admin.providers.create');
+    {
+        $this->municipios = Town::where('ID_STATE', $ID_STATE)->get();
+
     }
+
+    public function create(Request $request)
+    {
+    
+        $states = State::lists('DES_STATE', 'ID_STATE');
+        return view('admin.providers.create', compact('states'));
+
+           
+    }
+
+    public function gettowns(Request $request, $id){
+        @dd($id);
+
+        if($request->ajax()){
+            $towns = Town::towns($id);
+            return response()->json($towns);
+        }
+    }
+
+   
 
     /**
      * Store a newly created resource in storage.
@@ -42,23 +72,27 @@ class ProveedorController extends Controller
     public function store(Request $request)
 
     {
-        $estados = estado::all()->orderBy('DES_STATE','asc');
-    
-        $request -> validate([
-            'tax_identification' => 'required|unique:providers', 
-            'name'=> 'required',
-            'cod_city'=> 'required',
-            'od_state'=> 'required',
-            'address'=> 'required',
-            'phones'=> 'required',
-            'email'=> 'required',
+
+        $request->validate([
+
+            'tax_identification' => 'required|unique:providers',
+            'check_digital' => 'required',
+            'name' => 'required',
+            'cod_city' => 'required',
+            'cod_state' => 'required',
+            'id_country' => 'required',
+            'address' => 'required',
+            'phones' => 'required',
+            'email' => 'required|email|unique:providers',
+            'id_regime' => 'required',
+            'website' => 'required',
+
         ]);
 
         $providers = Proveedor::create($request->all());
-       
-        return redirect()->route('admin.providers.edit', compact('providers'))->with('info','Provider created successfully');
+        return redirect()->route('admin.providers.edit', compact('proveedor', 'estado'));
     }
-    
+
 
     /**
      * Display the specified resource.
@@ -80,7 +114,7 @@ class ProveedorController extends Controller
     public function edit($id)
 
     {
-        
+
         return view('admin.providers.edit', compact('providers'));
     }
 
@@ -93,17 +127,17 @@ class ProveedorController extends Controller
      */
     public function update(Request $request, $providers)
     {
-        $request -> validate([
-            'tax_identification' => 'required|unique:providers', 
-            'name'=> 'required',
-            'cod_city'=> 'required',
-            'od_state'=> 'required',
-            'address'=> 'required',
-            'phones'=> 'required',
-            'email'=> 'required',
+        $request->validate([
+            'tax_identification' => 'required|unique:providers',
+            'name' => 'required',
+            'cod_city' => 'required',
+            'od_state' => 'required',
+            'address' => 'required',
+            'phones' => 'required',
+            'email' => 'required',
         ]);
         $providers->update($request->all());
-        return redirect()-> route('admin.providers.edit',$providers)->with('info','Provider upgraded successfully');
+        return redirect()->route('admin.providers.edit', $providers)->with('info', 'Provider upgraded successfully');
     }
 
     /**
@@ -115,7 +149,6 @@ class ProveedorController extends Controller
     public function destroy(Proveedor $providers)
     {
         $providers->delete();
-        return  redirect()->route('admin.providers.index')->with('info','Provider removed successfully');
-
+        return  redirect()->route('admin.providers.index')->with('info', 'Provider removed successfully');
     }
 }

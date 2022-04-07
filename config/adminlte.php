@@ -241,12 +241,7 @@ return [
             'url'  => 'admin',
             'can'  => 'manage-blog',
         ],
-        [
-            'text' => 'Dashboard',
-            'route'  => 'admin.home',
-            'icon'  => 'fas fa-tachometer-alt fa-fw',
-        ],
-       
+        
         ['header' => 'Account_settings'],
        
         [
@@ -267,7 +262,7 @@ return [
                  ],
                  [
                     'text' => 'Providers',
-                    'route'  => 'admin.providers.index',
+                    'route'  => 'admin.states.index',
                     'icon' => 'fas fa-handshake fa-fw',
                     'active'=>['admin/providers*']
                  ],

@@ -10,12 +10,23 @@ class Proveedor extends Model
     use HasFactory;
     protected $table = 'providers';
     protected $fillable =[
-        'tax_identification', 
+        'tax_identification',
+        'check_regime', 
         'name',
         'cod_city',
-        'od_state',
+        'cod_state',
+        'id_country',
         'address',
         'phones',
+        'mobile',
         'email',
+        'website',
+        'check_regime'
+
     ];
+    public function estados()
+    {
+        return $this->belongsTo('app\models\estado','ID_STATE');
+    }
+
 }

@@ -1,13 +1,14 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
+
 use App\Rule\uppercase;
 use App\Http\Controllers\Controller;
-use App\Models\estado;
+use App\Models\State;
 use Illuminate\Http\Request;
 use App\Models\Requestoring;
 use App\Rules\UpperCase as RulesUpperCase;
-use App\Models\municipio;
+use App\Models\town;
 
 class RequestoringController extends Controller
 {
@@ -16,13 +17,14 @@ class RequestoringController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    
+
 
     public function index()
     {
         $requestorings = requestoring::all();
-       
-        return view('admin.requestorings.index', compact('requestorings'));
+        $states = state::all();
+
+        return view('admin.requestorings.index', compact('requestorings', 'states'));
     }
 
     /**
@@ -32,11 +34,12 @@ class RequestoringController extends Controller
      */
     public function create(Requestoring $requestorings)
     {
-         /* $estados = estado::all()->sortBy('DES_STATE'); */
-        $estados=estado::pluck('DES_STATE','ID_STATE');
-        $municipios= municipio::pluck('nombre','codigo');
-       
-        return view('admin.requestorings.create', compact('estados', 'municipios'));
+        /* $estados = estado::all()->sortBy('DES_STATE'); */
+        $states = state::orderby('state_id')->pluck('name', 'state_id');
+    
+        $towns = town::orderby('name')->pluck('name', 'id');
+
+        return view('admin.requestorings.create', compact('states', 'towns'));
     }
 
     /**
@@ -45,34 +48,37 @@ class RequestoringController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
+    
     public function store(Request $request,)
     {
         $request->validate([
-            'NIT'=>'required|unique:requestoring',
-            'correo'=>'required|email|unique:requestoring',
-            'DES_REQUESTORIG'=>'required',
-            'persona_encargada'=>'required',
-            'CITIZENSHIP_CARD'=>'required',
-            'LANDLINE'=>'required',
-            'MOBILE'=>'required',
-            'ID_STATE'=>'required',
-            'DES_AREA'=>'required'
-            
-        ]); 
+            'NIT' => 'required|unique:requestoring',
+            'correo' => 'required|email|unique:requestoring',
+            'DES_REQUESTORIG' => 'required',
+            'persona_encargada' => 'required',
+            'CITIZENSHIP_CARD' => 'required',
+            'LANDLINE' => 'required',
+            'MOBILE' => 'required',
+            'ID_STATE' => 'required',
+            'DES_AREA' => 'required'
 
+        ]);
+        $states = State::all();
         $Requestoring = Requestoring::create($request->all());
-        return redirect()->route('admin.requestorings.edit', compact('requestoring'));
         
+        $this->towns = town::where('state_id','state_id')->get();
+    
+        return redirect()->route('admin.requestorings.edit', compact('requestoring', 'state'));
     }
 
-    
+
 
     public function messages()
-{
-    return [
-       
-    ];
-}
+    {
+        return [];
+
+    }
 
     /**
      * Display the specified resource.
@@ -93,7 +99,7 @@ class RequestoringController extends Controller
      */
     public function edit(Requestoring $requestoring)
     {
-       return view('admin.requestorings.edit');
+        return view('admin.requestorings.edit');
     }
 
     /**

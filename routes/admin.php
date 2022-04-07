@@ -3,11 +3,13 @@
 use App\Http\Controllers\admin\EstadoController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\HomeController;
-use App\Http\Controllers\admin\MunicipioController;
+use App\Http\Controllers\TownController;
 use App\Http\Controllers\Admin\RequestoringController;
 use App\Http\Controllers\admin\PersonController;
 use App\Http\Controllers\admin\ProveedorController;
 use App\Models\Proveedor;
+use App\Http\Controllers\StateController;
+use Illuminate\Routing\RouteUri;
 
 Route::get('', [HomeController::class, 'index'])->name('admin.home');
 
@@ -17,6 +19,18 @@ Route::resource('persons', PersonController::class)->names('admin.persons');
 
 Route::resource('providers',ProveedorController::class)->names('admin.providers');
 
-Route::resource('states',EstadoController::class)->names('admin.states');
+Route::resource('states',StateController::class)->names('admin.states');
 
-Route::resource('municipios',MunicipioController::class)->names('admin.municipios');
+/*Route::get('/towns/{id}', [StateController::class, 'getTowns']);*/
+
+/*Route::resource('towns',TownController::class)->names('admin.towns');*/
+
+/*Route::get('', [StateController::class, 'index'])->name('admin.state');*/
+
+/*Route::post('/states', 'state@store')->name('states.store');*/
+/*Route::get('/towns', [stateController::class, 'getTowns']);*/
+
+
+
+
+
