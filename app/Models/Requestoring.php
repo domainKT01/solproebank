@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\estado;
+use App\Models\State;
 
 class Requestoring extends Model
 {
@@ -31,9 +31,9 @@ class Requestoring extends Model
    //many to many relationship
 
   
- public function estados()
+ public function states()
    {
-       return $this->belongsTo('app\models\estado','ID_STATE');
+       return $this->belongsTo(state::class, 'ID_STATE');
    }
     
 

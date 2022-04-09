@@ -27,7 +27,8 @@ class RequestoringsIndex extends Component
     }
     public function render()
     {
-        $states = State::all();
+       
+        $states = state::all();
         $requestorings = requestoring::where('DES_REQUESTORIG','LIKE','%'. $this->search .'%')
                 ->orwhere('NIT','LIKE','%'.$this->search.'%')
                 ->orwhere('des_area','LIKE','%'.$this->search.'%')
@@ -35,8 +36,8 @@ class RequestoringsIndex extends Component
                 ->latest('ID_REQUESTORIG')
                 ->paginate(10);
             
-
-        return view('livewire.admin.requestorings-index', compact('requestorings',['states'=>state::all()]));
+      
+        return view('livewire.admin.requestorings-index', compact('requestorings','states'));
        
     }
 

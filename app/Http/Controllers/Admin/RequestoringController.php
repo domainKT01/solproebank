@@ -35,11 +35,11 @@ class RequestoringController extends Controller
     public function create(Requestoring $requestorings)
     {
         /* $estados = estado::all()->sortBy('DES_STATE'); */
-        $states = state::orderby('state_id')->pluck('name', 'state_id');
+        $states = state::orderby('ID_STATE')->pluck('DES_STATE', 'ID_STATE');
     
-        $towns = town::orderby('name')->pluck('name', 'id');
+        /*$towns = town::orderby('name')->pluck('name', 'id');*/
 
-        return view('admin.requestorings.create', compact('states', 'towns'));
+        return view('admin.requestorings.create', compact('states'));
     }
 
     /**
@@ -67,7 +67,7 @@ class RequestoringController extends Controller
         $states = State::all();
         $Requestoring = Requestoring::create($request->all());
         
-        $this->towns = town::where('state_id','state_id')->get();
+        $this->towns = town::where('ID_STATE','ID_STATE')->get();
     
         return redirect()->route('admin.requestorings.edit', compact('requestoring', 'state'));
     }

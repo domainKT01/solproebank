@@ -1,4 +1,5 @@
 <div class="card">
+    
     <div class="card-heard">
         <div class="input-group mb-3 mt-3">            
             <input wire:model="search" class="form-control mt-2 ml-4 mr-4 "  placeholder="Type what you want to search for">
@@ -11,6 +12,7 @@
         
     </div>
     @if ($requestorings->count())
+    
         <div class="card-body">
             <table class="table table-striped table-bordered table-sm ">
                 <thead>
@@ -24,6 +26,7 @@
                     </tr>
                 </thead>
                 <tbody>
+                    
                     @foreach ($requestorings as $requestoring)
                     
                         <tr>
@@ -31,7 +34,8 @@
                             <td width="10px">{{ $requestoring->NIT }}</td>
                             <td class="col-md-4" width="12px">{{ $requestoring->DES_REQUESTORIG }}</td>
                             <td width="10px">{{ $requestoring->DES_AREA }}</td>
-                            <td width="10px">{{ $requestoring->estados->DES_STATE}}</td>
+                            <td width="10px">{{ $requestoring->states->DES_STATE}}</td>
+
                             {{-- CREATE BUTTONS --}}
                             
                             <td width="10px">

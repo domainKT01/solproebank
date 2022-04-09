@@ -25,7 +25,7 @@
                     <td width="10px">{{ $requestoring->NIT }}</td>
                     <td class="col-md-4" width="12px">{{ $requestoring->DES_REQUESTORIG }}</td>
                     <td width="10px">{{ $requestoring->DES_AREA }}</td>
-                    <td width="10px">{{ $requestoring->ID_STATE }}</td>
+                    <td width="10px">{{ $requestoring->state->DES_STATE}}</td>
                 </tr>
             @endforeach
         </tbody>

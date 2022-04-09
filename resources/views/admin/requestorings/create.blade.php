@@ -105,14 +105,14 @@
             <div class="form-row ml-4 mt-2">
                 <div class="form-group ">
                     {!! Form::label('ID_STATE', 'state') !!}
-                    {!! Form::select('ID_STATE', $estados, null, ['class' => 'form-control']) !!}
+                    {!! Form::select('ID_STATE', $states, null, ['class' => 'form-control']) !!}
                     @error('ID_STATE')
                         <span class="text-danger">{{ $message }}</span>
                     @enderror
                 </div>
                 <div class="form-group col-md-4 ">
                     {!! Form::label('CODIGO', 'MUNICIPIOS') !!}
-                    {!! Form::select('DES_AREA', $municipios, null, ['class' => 'form-control']) !!}
+                    {!! Form::select('DES_AREA', $towns, null, ['class' => 'form-control']) !!}
                     @error('DES_AREA')
                         <span class="text-danger">{{ $message }}</span>
                     @enderror
