@@ -15,4 +15,8 @@ class State extends Model
     public function requestorings(){
         return $this->hasMany(Requestoring::class);
     }
+
+    public function towns(){
+        return $this->belongsTo(Town::class);
+    }
 }

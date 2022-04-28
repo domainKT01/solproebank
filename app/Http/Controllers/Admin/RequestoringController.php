@@ -23,7 +23,7 @@ class RequestoringController extends Controller
     {
         $requestorings = requestoring::all();
         $states = state::all();
-
+       
         return view('admin.requestorings.index', compact('requestorings', 'states'));
     }
 
@@ -36,10 +36,10 @@ class RequestoringController extends Controller
     {
         /* $estados = estado::all()->sortBy('DES_STATE'); */
         $states = state::orderby('ID_STATE')->pluck('DES_STATE', 'ID_STATE');
-    
-        /*$towns = town::orderby('name')->pluck('name', 'id');*/
-
-        return view('admin.requestorings.create', compact('states'));
+        $towns = town::orderby('name')->pluck('name', 'id');
+        $regimens = ['simplified', 'common' ];
+        $digits = ['0','1','2','3','4','5','6','7','8','9'];
+        return view('admin.requestorings.create', compact('states', 'towns','regimens','digits'));
     }
 
     /**

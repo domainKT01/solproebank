@@ -12,8 +12,12 @@ class Town extends Model
     protected $table = 'towns';
     protected $fillable = ['name', 'state_id'];
 
+    public function states(){
+        return $this->hasMany(State::class);
+    }
+
     public static function towns($id){
-        return Town::where('state_id','=',$id)
+        return Town::where('ID_STATE','=',$id)
         ->get();
     }
 }

@@ -20,31 +20,14 @@
                 </div>
                 <div class="form-group ">
                     {!! Form::label('CHECK DIGIT', '') !!}
-                    <select name="" class="form-control">
-                        <option selected>Digit</option>
-                        <option value="0">0</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option>...</option>
-                    </select>
+                    {!! Form::select('', $digits, null, ['class' => 'form-control', 'text-align: right', 'placeholder' => 'Choose digit']) !!}
                     @error('CHECK_DIGITAL')
                         <span class="text-danger">{{ $message }}</span>
                     @enderror
                 </div>
                 <div class="form-group col-md-4 ">
                     {!! Form::label('TAX REGIME', '') !!}
-                    <select id="inputState" class="form-control">
-                        <option selected>Choose tax regime</option>
-                        <option>...</option>
-                    </select>
-                    @error('REGIME')
+                    {!! Form::select('', $regimens, null, ['class' => 'form-control', 'placeholder' => 'Choose regimens']) !!}@error('REGIME')
                         <span class="text-danger">{{ $message }}</span>
                     @enderror
 
