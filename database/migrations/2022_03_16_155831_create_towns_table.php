@@ -13,13 +13,12 @@ class CreateTownsTable extends Migration
      */
     public function up()
     {
-        Schema::create('towns', function (Blueprint $table) {
+        {/*Schema::create('towns', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
             $table->integer('state_id')->unsigned();
             $table->foreign('state_id')->references('id')->on('state');
-            $table->timestamps();
-        });
+        $table->timestamps();*/}
     }
 
     /**
