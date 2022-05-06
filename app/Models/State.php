@@ -8,7 +8,7 @@ use App\Models\Requestoring;
 
 class State extends Model
 {
-    protected $table ='state';
+    protected $table ='states';
     protected $fillabel= ['des_state'];
     protected $primaryKey = 'ID_STATE';
 
