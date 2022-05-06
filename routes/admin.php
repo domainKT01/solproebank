@@ -10,6 +10,7 @@ use App\Http\Controllers\admin\ProveedorController;
 use App\Models\Proveedor;
 use App\Http\Controllers\StateController;
 use Illuminate\Routing\RouteUri;
+use App\Http\Controllers\Admin\pagesController;
 
 Route::get('', [HomeController::class, 'index'])->name('admin.home');
 
@@ -20,6 +21,11 @@ Route::resource('persons', PersonController::class)->names('admin.persons');
 Route::resource('providers',ProveedorController::class)->names('admin.providers');
 
 Route::resource('states',StateController::class)->names('admin.states');
+
+Route::get('parametros', [pagesController::class, 'compare'])->name('parametros');
+
+Route::get('pacientes', [pagesController::class, 'insertPatient '])->name('pacientes');
+
 
 /*Route::get('/towns/{id}', [StateController::class, 'getTowns']);*/
 
