@@ -257,12 +257,14 @@ return [
 
         [
             'text' => 'parametros',
-            'url' => 'parametros'
+            'url' => 'parametros',
+            'icon' => 'fas fa-align-justify'
         ],  
 
         [
             'text' => 'pacientes',
-            'url' => 'pacientes'
+            'url' => 'pacientes',
+            'icon' => 'far fa-user'
         ],
 
         [
