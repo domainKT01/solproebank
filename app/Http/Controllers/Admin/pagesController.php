@@ -14,14 +14,18 @@ use Illuminate\Http\Request;
 
 class pagesController extends Controller
 {
-    public function insertPatient(){
+    public function patients(){
 
-        return view('livewire.admin.compare');  
+        $response = new insertPatient();
+
+        return $response->render();
     }
 
     public function compare(){
 
-        return Compare::class;
+        $response = new Compare();
+
+        return $response->render();
     }
 
     public static function Dashboard(){

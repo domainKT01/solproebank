@@ -45,6 +45,6 @@ class insertData extends Model
         1
     );
 
-        return view('response-table', compact('namePatient', 'response', 'categoria', 'volemia', 'apto'));
+        return view('livewire.admin.response-table', compact('namePatient', 'response', 'categoria', 'volemia', 'apto'));
     }
 }

@@ -22,9 +22,7 @@ Route::resource('providers',ProveedorController::class)->names('admin.providers'
 
 Route::resource('states',StateController::class)->names('admin.states');
 
-Route::get('parametros', [pagesController::class, 'compare'])->name('parametros');
 
-Route::get('pacientes', [pagesController::class, 'insertPatient '])->name('pacientes');
 
 
 /*Route::get('/towns/{id}', [StateController::class, 'getTowns']);*/

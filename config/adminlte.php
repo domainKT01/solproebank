@@ -127,7 +127,7 @@ return [
     'classes_content_wrapper' => '',
     'classes_content_header' => '',
     'classes_content' => '',
-    'classes_sidebar' => 'sidebar-light-danger elevation-4',
+    'classes_sidebar' => 'sidebar-dark-danger elevation-4',
     'classes_sidebar_nav' => '',
     'classes_topnav' => 'navbar-white navbar-light',
     'classes_topnav_nav' => 'navbar-expand',
@@ -242,13 +242,29 @@ return [
             'can'  => 'manage-blog',
         ],
         
-        ['header' => 'Account_settings'],
+        ['header' => 'menu'],
+
+        [
+            'text' => 'Dasboard',
+            'url' => 'dashboard'
+        ],
        
         [
             'text' => 'Donor',
             'route'  => 'admin.persons.index',
             'icon' => 'fas fa-people-arrows fa-fw'
         ],
+
+        [
+            'text' => 'parametros',
+            'url' => 'parametros'
+        ],  
+
+        [
+            'text' => 'pacientes',
+            'url' => 'pacientes'
+        ],
+
         [
             'text'    => 'Management',
             'icon'    => 'fas fa-compress fa-fw',
