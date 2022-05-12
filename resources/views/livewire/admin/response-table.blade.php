@@ -22,7 +22,7 @@
                         <tr class="flex flex-col flex-no wrap sm:table-row mb-2 sm:mb-0">
                             <td class="border-grey-light border hover:bg-gray-100 p-3">{{ $namePatient }}</td>
                             <td class="border-grey-light border hover:bg-gray-100 p-3 truncate">{{ round($response, 2) }}</td>
-                            <td class="border-grey-light border hover:bg-gray-100 p-3 truncate">{{ $volemia * 1000 }}</td>
+                            <td class="border-grey-light border hover:bg-gray-100 p-3 truncate">{{ round($volemia * 1000) }}</td>
                             <td class="border-grey-light border hover:bg-gray-100 p-3 truncate">{{ $categoria }}</td>
                             <td class="border-grey-light border hover:bg-gray-100 p-3 truncate">{{ $apto }}</td>
                         </tr>
