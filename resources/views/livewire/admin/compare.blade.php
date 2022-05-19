@@ -7,7 +7,7 @@
     <div class="max-w-lg max-w-xs rounded-lg mx-auto text-center py-12 mt-4 rounded-xl">
         <h1 class="text-gray-200 text-center font-extrabold -mt-3 text-3xl">Parametros</h1>
         <div class="container py-5 max-w-md mx-auto">
-            <form method="POST" action="{{ route('forms') }}">
+            <form method="POST" action="{{ route('parametros') }}">
                 @csrf
                 <div class="mb-4">
                     <input placeholder="Bajo Peso" name="bajoPeso" class="shadow appearance-none  rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text">

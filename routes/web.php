@@ -28,11 +28,3 @@ Route::get('/', function () {
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
-
-Route::get('parametros', [pagesController::class, 'compare'])->name('parametros');
-
-Route::get('pacientes', [pagesController::class, 'patients'])->name('pacientes');
-
-Route::post('forms', [formController::class, 'store'])->name('forms');
-
-Route::post('patientForms', [patientController::class, 'store'])->name('patientForms');

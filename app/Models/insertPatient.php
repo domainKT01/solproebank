@@ -9,11 +9,21 @@ use App\Models\calcular_IMC;
 class insertPatient extends Model
 {
 
-    public static function data($request)
-    {
+    protected $table = 'patients';
 
-        $data = insertData::insert($request);
+    protected $fillable = [
 
-        return redirect()->route('pacientes');
-    }
+        'nombre',
+        'imc',
+        'volemia',
+        'apto'
+    ];
+
+    protected $guarded = [
+
+        'created_at',
+        'updated_at'
+    ];
+
+    public $timestamps = true;
 }
