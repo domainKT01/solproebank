@@ -20,10 +20,10 @@
                 @foreach($proveedores as $proveedor)
                     <tr>
                         <td>{{$proveedor->id}}</td>
+                        <td>{{$proveedor->tax_identification}}</td>
                         <td>{{$proveedor->name}}</td>
-                        <td>{{$proveedor->email}}</td>
-                        <td>{{$proveedor->phones}}</td>
-                        <td>{{$proveedor->Cod_city}}</td>
+                        <td>{{$proveedor->city}}</td>
+                        <td>{{$proveedor->state}}</td>
                         <td with="10px">
                             <a class="btn btn-primary btn-sm" href="{{route('admin.providers.edit', $proveedor)}}">Editar</a>
                         </td>

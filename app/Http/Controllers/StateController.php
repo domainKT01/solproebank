@@ -11,7 +11,7 @@ class StateController extends Controller
     public function index()
    
     {
-        $states = State::orderby('ID_STATE')->pluck('DES_STATE', 'ID_STATE');
+        $states = State::all();
         return view('admin.providers.index', compact('states'));
 
     }
