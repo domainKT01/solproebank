@@ -19,9 +19,7 @@ class patientsController extends Controller
      */
     public function index()
     {
-        $response = new InsertPatient();
-
-        return $response->render();
+        return view('insertPatient');
     }
 
     /**

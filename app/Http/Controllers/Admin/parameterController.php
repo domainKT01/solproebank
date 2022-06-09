@@ -16,9 +16,7 @@ class parameterController extends Controller
      */
     public function index()
     {
-        $response = new Compare();
-
-        return $response->render();
+        return view('compare');
     }
 
     /**

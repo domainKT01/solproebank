@@ -5,7 +5,7 @@
 
 @section('content')
     <div class="max-w-lg max-w-xs rounded-lg mx-auto text-center py-12 mt-4 rounded-xl">
-        <h1 class="text-gray-200 text-center font-extrabold -mt-3 text-3xl">Parametros</h1>
+        <h1 class="text-gray-200 text-center font-extrabold -mt-3 text-3xl" style="font-family:'Courier New', Courier, monospace; color:black;">Parametros</h1>
         <div class="container py-5 max-w-md mx-auto">
             <form method="POST" action="{{ route('parametros') }}">
                 @csrf
@@ -26,10 +26,8 @@
         </div>
     </div>
 @stop
-
 @section('css')
-    <link rel="stylesheet" href="/css/admin_custom.css">
-    <link rel="shortcut icon" href="favicons/favicon.ico">
+<link rel="stylesheet" href="/css/admin_custom.css">
 @stop
 
 @section('js')

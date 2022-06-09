@@ -5,7 +5,7 @@
 
 @section('content')
     <div class="max-w-lg max-w-xs rounded-lg mx-auto text-center py-12 mt-4 rounded-xl">
-        <h1 class="text-gray-200 text-center font-extrabold -mt-3 text-3xl" style="padding-top: 5%;">Paciente</h1>
+        <h1 class="text-gray-200 text-center font-extrabold -mt-3 text-3xl" style="padding-top: 5%;font-family:'Courier New', Courier, monospace; color:black;">Paciente</h1>
         <div class="container py-5 max-w-md mx-auto">
             <form method="POST" action="{{ route('pacientes') }}">
                 @csrf
